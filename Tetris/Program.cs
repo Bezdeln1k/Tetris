@@ -8,15 +8,16 @@ internal class Program
             Console.SetWindowSize(40, 30);
             Console.SetBufferSize(40, 30);
 
-            int x1 = 2;
-            int y1 = 3;
-            char c1 = '*';
-
-            Point p1 = new Point();
-            p1.x = 2;
-            p1.y = 3;
-            p1.c = '*';
+            Point p1 = new Point(2, 3, '*');
             p1.Draw();
+
+            Point p2 = new Point()
+            {
+                x = 4,
+                y = 5,
+                c = '#'
+            };
+            p2.Draw();
 
 
 

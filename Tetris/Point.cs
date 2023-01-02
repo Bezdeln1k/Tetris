@@ -17,5 +17,15 @@ namespace Tetris
             Console.SetCursorPosition(x, y);
             Console.Write(c);
         }
+
+        public Point(int a, int b, char sym)
+        {
+            x = a;
+            y = b;
+            c = sym;
+
+        }
+
+        public Point () { } //пустой аргумент, который идёт по-умолчанию, если не задавать другие
     }
 }
