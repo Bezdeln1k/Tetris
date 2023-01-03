@@ -8,9 +8,19 @@ internal class Program
             Console.SetWindowSize(40, 30);
             Console.SetBufferSize(40, 30);
 
+            Figure[] f = new Figure[2];
+            f[0] = new Square(2, 5, '*');
+            f[1] = new Stick(10, 10, '*');
+
+            foreach (Figure fig in f)
+            {
+                fig.Draw();
+            }
+
+
             //рисую палку сам
-            Stick l = new Stick(10, 10, '*');
-            l.Draw();
+            //Stick l = new Stick(10, 10, '*');
+            //l.Draw();
 
             //Square s = new Square(2, 5, '*');   //рисование квадрата из "*", используя конструктор в классе Square
             //s.Draw();
