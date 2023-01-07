@@ -9,11 +9,28 @@ namespace Tetris
     internal class Figure
     {
         protected Point[] points = new Point[4]; //protected означает, что точки(points) можно использовать только в дочерних классах
-        public void Draw()
+        
+        public void Draw()                  //Метод Draw - рисует на экране элемент который описан заданными свойствами
         {
-            foreach (Point l in points)
+            foreach (Point p in points)
             {
-                l.Draw();
+                p.Draw();
+            }
+        }
+
+        public void Move(Direction dir)     //Move - перемещает (в данном случае фигуру) в новое место
+        {
+            foreach(Point p in points)
+            {
+                p.Move(dir);
+            }
+        }
+
+        public void Hide()
+        {
+            foreach (Point p in points)
+            {
+                p.Hide();
             }
         }
     }

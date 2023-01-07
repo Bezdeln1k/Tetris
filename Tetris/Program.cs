@@ -8,14 +8,24 @@ internal class Program
             Console.SetWindowSize(40, 30);
             Console.SetBufferSize(40, 30);
 
-            Figure[] f = new Figure[2];
-            f[0] = new Square(2, 5, '*');
-            f[1] = new Stick(10, 10, '*');
+            Square s = new Square(2, 5, '*');
+            s.Draw();                       // Отрисовали фигуру
 
-            foreach (Figure fig in f)
-            {
-                fig.Draw();
-            }
+            Thread.Sleep(500);             // Вставили задержку на 0.5 сек, чтобы увидеть движение фигуры в консоли
+
+            s.Hide();                       // Скрыли фигуру
+            s.Move(Direction.LEFT);         // Потом сдвинули его налево
+            s.Draw();                       // И снова отрисовали
+
+
+            //Figure[] f = new Figure[2];
+            //f[0] = new Square(2, 5, '*');
+            //f[1] = new Stick(10, 10, '*');
+
+            //foreach (Figure fig in f)
+            //{
+            //    fig.Draw();
+            //}
 
 
             //рисую палку сам
