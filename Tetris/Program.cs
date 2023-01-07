@@ -8,8 +8,16 @@ internal class Program
             Console.SetWindowSize(40, 30);
             Console.SetBufferSize(40, 30);
 
-            Square s = new Square(2, 5, '*');
+            Figure s = new Stick(10, 5, '*');
             s.Draw();                       // Отрисовали фигуру
+
+            Thread.Sleep(500);             // Вставили задержку на 0.5 сек, чтобы увидеть движение фигуры в консоли
+
+            s.Hide();                       // Скрыли фигуру
+            s.Rotate();                     // Потом повернули фигуру
+            s.Draw();                       // И снова отрисовали
+
+
 
             Thread.Sleep(500);             // Вставили задержку на 0.5 сек, чтобы увидеть движение фигуры в консоли
 
