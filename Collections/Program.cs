@@ -1,4 +1,5 @@
-﻿using Tetris;
+﻿using System;
+using Tetris;
 
 namespace Collections
 {
@@ -35,14 +36,14 @@ namespace Collections
             field[1] = new char[3];
             field[2] = new char[3];
 
-            field[0][0] = 'X';
+            field[1][1] = 'X';
             field[2][2] = '0';
 
             for(int i = 0; i < field.Length; i++)
             {
                 for(int j = 0; j < field[i].Length; j++)
                 {
-                    Console.Write(field[i][j]);
+                    Console.Write($"{field[i][j]} \t");
                 }
                 Console.WriteLine();
             }
