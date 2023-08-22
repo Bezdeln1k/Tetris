@@ -8,22 +8,27 @@ internal class Program
             Console.SetWindowSize(40, 30);
             Console.SetBufferSize(40, 30);
 
-            Figure s = new Stick(10, 5, '*');
-            s.Draw();                       // Отрисовали фигуру
-
-            Thread.Sleep(500);             // Вставили задержку на 0.5 сек, чтобы увидеть движение фигуры в консоли
-
-            s.Hide();                       // Скрыли фигуру
-            s.Rotate();                     // Потом повернули фигуру
-            s.Draw();                       // И снова отрисовали
+            FigureGenerator generator = new FigureGenerator(20, 0, '*');
+                        Figure s = generator.GetNewFigure();
 
 
 
-            Thread.Sleep(500);             // Вставили задержку на 0.5 сек, чтобы увидеть движение фигуры в консоли
 
-            s.Hide();                       // Скрыли фигуру
-            s.Move(Direction.LEFT);         // Потом сдвинули его налево
-            s.Draw();                       // И снова отрисовали
+            //s.Draw();                       // Отрисовали фигуру
+
+            //Thread.Sleep(500);             // Вставили задержку на 0.5 сек, чтобы увидеть движение фигуры в консоли
+
+            //s.Hide();                       // Скрыли фигуру
+            //s.Rotate();                     // Потом повернули фигуру
+            //s.Draw();                       // И снова отрисовали
+
+
+
+            //Thread.Sleep(500);             // Вставили задержку на 0.5 сек, чтобы увидеть движение фигуры в консоли
+
+            //s.Hide();                       // Скрыли фигуру
+            //s.Move(Direction.LEFT);         // Потом сдвинули его налево
+            //s.Draw();                       // И снова отрисовали
 
 
             //Figure[] f = new Figure[2];
