@@ -18,7 +18,7 @@ namespace Tetris
 
         public override void Rotate()
         {
-            if (points[0].x == points[1].x)
+            if (points[0].x == points[1].x) //если значение х не отличается, т.е. в данном случае фигура вертикальна
             {
                 RotateHorizontal();
             }
