@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Reflection.Emit;
 using Tetris;
 internal class Program
 {
@@ -9,7 +10,13 @@ internal class Program
             Console.SetBufferSize(40, 30);
 
             FigureGenerator generator = new FigureGenerator(20, 0, '*');
-                        Figure s = generator.GetNewFigure();
+            Figure s = null;
+
+            while (true)
+            {
+                FigureFall(s, generator);
+                s.Draw();
+            }
 
 
 
@@ -61,7 +68,23 @@ internal class Program
 
 
 
-            Console.ReadLine();
+            //Console.ReadLine();
         }
+        static void FigureFall(Figure fig, FigureGenerator generator)
+        {
+            fig = generator.GetNewFigure();
+            fig.Draw();
+
+            for (int i = 0; i < 15; i++)
+            {
+                fig.Hide();
+                fig.Move(Direction.DOWN);
+                fig.Draw();
+                Thread.Sleep(200);
+            }
+        }
+
     }
+
+    
 }
