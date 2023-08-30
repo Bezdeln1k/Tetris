@@ -20,10 +20,12 @@ namespace Tetris
 
         public void Move(Direction dir)     //Move - перемещает (в данном случае фигуру) в новое место
         {
+            Hide();
             foreach(Point p in points)
             {
                 p.Move(dir);
             }
+            Draw();
         }
 
         public void Hide()

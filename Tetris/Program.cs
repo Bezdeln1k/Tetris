@@ -16,9 +16,9 @@ internal class Program
             {
                 if (Console.KeyAvailable)   //"Улавливает" нажатие клавиши в консоли
                 {
-                    //ConsoleKeyInfo key = Console.ReadKey();     //переменная key хранит значение, которое нажал пользователь
+                    //ConsoleKeyInfo key = Console.ReadKey();     //переменная key хранит значение клавиши, которую нажал пользователь
                     var key = Console.ReadKey();                  // ключевое слово var "заменяет" любой тип и компилятор сам определяет тип данных
-
+                    HandleKey(currentFigure, key);
                 }
             }
 
@@ -26,5 +26,19 @@ internal class Program
 
     }
 
-    
+    private static void HandleKey(Figure currentFigure, ConsoleKeyInfo key)
+    {
+        switch (key.Key)
+        {
+            case ConsoleKey.LeftArrow:
+                currentFigure.Move(Direction.LEFT);
+                break;
+            case ConsoleKey.RightArrow:
+                currentFigure.Move(Direction.RIGHT);
+                break; 
+            case ConsoleKey.DownArrow:
+                currentFigure.Move(Direction.DOWN);
+                break;
+        }
+    }
 }
