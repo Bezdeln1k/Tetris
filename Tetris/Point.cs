@@ -47,6 +47,12 @@ namespace Tetris
             c = sym;
 
         }
+        public Point(Point p)
+        {
+            x = p.x;
+            y = p.y;
+            c = p.c;
+        }
 
         public Point () { } //пустой аргумент, который идёт по-умолчанию, если не задавать другие
     }
