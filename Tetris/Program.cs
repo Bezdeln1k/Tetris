@@ -6,10 +6,10 @@ internal class Program
     private static void Main(string[] args)
     {
         {
-            Console.SetWindowSize(Field.WIDTH, Field.HEIGTH);
-            Console.SetBufferSize(Field.WIDTH, Field.HEIGTH);
+            Console.SetWindowSize(Field.Width, Field.HEIGTH);
+            Console.SetBufferSize(Field.Width, Field.HEIGTH);
 
-            Field.SetWidth(20);
+            Field.Width = 20;
 
             FigureGenerator generator = new FigureGenerator(20, 0, '*');
             Figure currentFigure = generator.GetNewFigure(); 
