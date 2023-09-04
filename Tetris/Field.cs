@@ -8,6 +8,9 @@ namespace Tetris
 {
     static class Field      //статичный класс, чтобы нельзя было создать экземпляры класса в другом месте программы
     {
+        private static int _width = 40;
+        private static int _height = 30;
+       
         public static int Width     //св-во,которое задает ширину, с которым можно работать как с обычной переменной
         {
             get
@@ -17,13 +20,26 @@ namespace Tetris
             set
             {
                 _width = value;
-                Console.SetWindowSize(_width, Field.HEIGTH);
-                Console.SetBufferSize(_width, Field.HEIGTH);
+                Console.SetWindowSize(_width, Field.Height);
+                Console.SetBufferSize(_width, Field.Height);
+            }
+        }
+        
+        public static int Height     //св-во,которое задает ширину, с которым можно работать как с обычной переменной
+        {
+            get
+            {
+                return _height;
+            }
+            set
+            {
+                _height = value;
+                Console.SetWindowSize(value, Field.Height);
+                Console.SetBufferSize(value, Field.Height));
             }
         }
 
-        private static int _width = 40;
-        public const int HEIGTH = 30;
+        
 
 
         //public static int GetWidth()        //Ф-я, которая будет вызываться для смены ширины экрана (пример программы без использования геттеров и сеттеров)
