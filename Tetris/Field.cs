@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Tetris
 {
-    internal class Field
+    static class Field      //статичный класс, чтобы нельзя было создать экземпляры класса в другом месте программы
     {
-        public static int WIDTH = 40;
-        public static int HEIGTH = 30;
-
+        public const int WIDTH = 40;    // переменные заданы в виде констант, чтобы нельзя было переопределить в другом месте программы
+        public const int HEIGTH = 30;
     }
 }

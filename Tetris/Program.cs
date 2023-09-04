@@ -6,8 +6,8 @@ internal class Program
     private static void Main(string[] args)
     {
         {
-            Console.SetWindowSize(40, 30);
-            Console.SetBufferSize(40, 30);
+            Console.SetWindowSize(Field.WIDTH, Field.HEIGTH);
+            Console.SetBufferSize(Field.WIDTH, Field.HEIGTH);
 
             FigureGenerator generator = new FigureGenerator(20, 0, '*');
             Figure currentFigure = generator.GetNewFigure(); 
