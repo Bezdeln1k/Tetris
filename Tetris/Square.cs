@@ -17,7 +17,7 @@ namespace Tetris
             Draw();
         }
 
-        public override void Rotate()   // квадрат крутить нет смысла, поэтому пусто
+        public override void Rotate(Point[] pList)   // квадрат крутить нет смысла, поэтому пусто
         {
             
         }

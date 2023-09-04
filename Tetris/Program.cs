@@ -39,6 +39,9 @@ internal class Program
             case ConsoleKey.DownArrow:
                 currentFigure.TryMove(Direction.DOWN);
                 break;
+            case ConsoleKey.Spacebar:
+                currentFigure.TryRotate();
+                break;
         }
     }
 }

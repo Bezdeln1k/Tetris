@@ -16,6 +16,7 @@ namespace Tetris
         {
             Console.SetCursorPosition(x, y);
             Console.Write(c);
+            Console.SetCursorPosition(0, 0);
         }
 
         internal void Move(Direction dir)   //Метод, описывающий движение точек на одно положение

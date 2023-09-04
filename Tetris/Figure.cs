@@ -27,7 +27,7 @@ namespace Tetris
             }
         }
 
-        public abstract void Rotate();
+        public abstract void Rotate(Point[] pList);
 
         //public void Move(Direction dir)     //Move - перемещает (в данном случае фигуру) в новое место
         //{
@@ -38,18 +38,6 @@ namespace Tetris
         //    }
         //    Draw();
         //}
-
-        internal void TryMove(Direction dir)
-        {
-            Hide();
-            var clone = Clone();    //явного указания типа Point[]
-            Move(clone, dir);
-
-            if (VerifyPosition(clone))
-                points = clone;
-
-            Draw();
-        }
 
         private bool VerifyPosition(Point[] pList)      //ф-я проверки границ окна
         {
@@ -69,7 +57,19 @@ namespace Tetris
             }
         }
 
-        private Point[] Clone()
+        internal void TryMove(Direction dir)
+        {
+            Hide();
+            var clone = Clone();    //явного указания типа Point[]
+            Move(clone, dir);
+
+            if (VerifyPosition(clone))
+                points = clone;
+
+            Draw();
+        }
+
+        private Point[] Clone()     //копия массива 
         {
             var newPoints = new Point[LENGTH];
             for(int i = 0; i < LENGTH; i++)
@@ -77,6 +77,18 @@ namespace Tetris
                 newPoints[i] = new Point(points[i]);
             }
             return newPoints;
+        }
+
+        internal void TryRotate()
+        {
+            Hide();
+            var clone = Clone();    //явного указания типа Point[]
+            Rotate(clone);
+
+            if (VerifyPosition(clone))
+                points = clone;
+
+            Draw();
         }
     }
 }
