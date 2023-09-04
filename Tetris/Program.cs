@@ -9,6 +9,8 @@ internal class Program
             Console.SetWindowSize(Field.WIDTH, Field.HEIGTH);
             Console.SetBufferSize(Field.WIDTH, Field.HEIGTH);
 
+            Field.SetWidth(20);
+
             FigureGenerator generator = new FigureGenerator(20, 0, '*');
             Figure currentFigure = generator.GetNewFigure(); 
 
