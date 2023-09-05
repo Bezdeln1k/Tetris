@@ -35,7 +35,7 @@ namespace Tetris
             {
                 _height = value;
                 Console.SetWindowSize(value, Field.Height);
-                Console.SetBufferSize(value, Field.Height));
+                Console.SetBufferSize(value, Field.Height);
             }
         }
 
