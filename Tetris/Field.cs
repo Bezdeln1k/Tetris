@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace Tetris
 {
-    static class Field      //статичный класс, чтобы нельзя было создать экземпляры класса в другом месте программы
+    //статичный класс, чтобы нельзя было создать экземпляры класса в другом месте программы
+    static class Field      
     {
         private static int _width = 40;
         private static int _height = 30;
-       
-        public static int Width     //св-во,которое задает ширину, с которым можно работать как с обычной переменной
+
+        //св-во,которое задает ширину, с которым можно работать как с обычной переменной
+        public static int Width     
         {
             get
             {
@@ -24,8 +26,9 @@ namespace Tetris
                 Console.SetBufferSize(_width, Field.Height);
             }
         }
-        
-        public static int Height     //св-во,которое задает ширину, с которым можно работать как с обычной переменной
+
+        //св-во,которое задает ширину, с которым можно работать как с обычной переменной
+        public static int Height     
         {
             get
             {
@@ -39,10 +42,32 @@ namespace Tetris
             }
         }
 
-        
+        private static bool[][] _heap;
+
+        static Field()
+        {
+            _heap = new bool[Height][];
+            for(int i = 0; i < Height; i++)
+            {
+                _heap[i] = new bool[Width];
+            }
+        }
+
+        public static bool CheckStrike(Point p)
+        {
+            return _heap[p.Y][p.X];
+        }
+        public static void AddFigure(Figure fig)
+        {
+            foreach(var p in fig.Points)
+            {
+                _heap[p.Y][p.X] = true;
+            }
+        }
 
 
-        //public static int GetWidth()        //Ф-я, которая будет вызываться для смены ширины экрана (пример программы без использования геттеров и сеттеров)
+        //Ф-я, которая будет вызываться для смены ширины экрана (пример программы без использования геттеров и сеттеров)
+        //public static int GetWidth()        
         //{
         //    return _width;
         //}

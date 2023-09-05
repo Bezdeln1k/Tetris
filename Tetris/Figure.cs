@@ -9,11 +9,11 @@ namespace Tetris
     abstract class Figure
     {
         const int LENGTH = 4;
-        protected Point[] points = new Point[LENGTH]; //protected означает, что точки(points) можно использовать только в дочерних классах
+        public Point[] Points = new Point[LENGTH]; //protected означает, что точки(points) можно использовать только в дочерних классах
         
         public void Draw()                  //Метод Draw - рисует на экране элемент который описан заданными свойствами
         {
-            foreach (Point p in points)
+            foreach (Point p in Points)
             {
                 p.Draw();
             }
@@ -21,7 +21,7 @@ namespace Tetris
 
         public void Hide()
         {
-            foreach (Point p in points)
+            foreach (Point p in Points)
             {
                 p.Hide();
             }
@@ -64,7 +64,7 @@ namespace Tetris
             Move(clone, dir);
 
             if (VerifyPosition(clone))
-                points = clone;
+                Points = clone;
 
             Draw();
         }
@@ -74,7 +74,7 @@ namespace Tetris
             var newPoints = new Point[LENGTH];
             for(int i = 0; i < LENGTH; i++)
             {
-                newPoints[i] = new Point(points[i]);
+                newPoints[i] = new Point(Points[i]);
             }
             return newPoints;
         }
@@ -86,7 +86,7 @@ namespace Tetris
             Rotate(clone);
 
             if (VerifyPosition(clone))
-                points = clone;
+                Points = clone;
 
             Draw();
         }
