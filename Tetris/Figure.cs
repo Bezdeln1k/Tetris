@@ -39,14 +39,30 @@ namespace Tetris
         //    Draw();
         //}
 
-        private bool VerifyPosition(Point[] pList)      //ф-я проверки границ окна
+        //private bool VerifyPosition(Point[] pList)      //ф-я проверки границ окна
+        //{
+        //    foreach(var p in pList)
+        //    {
+        //        if(p.X < 0 || p.Y < 0 || p.X >= Field.Width || p.Y >= Field.Height)
+        //            return false;
+        //    }
+        //    return true;
+        //}
+        
+        private Result VerifyPosition(Point[] newPoints)
         {
-            foreach(var p in pList)
+            foreach(var p in newPoints)
             {
-                if(p.X < 0 || p.Y < 0 || p.X >= Field.Width || p.Y >= Field.Height)
-                    return false;
+                if (p.Y >= Field.Height)
+                    return Result.DOWN_BORDER_STRIKE;   //нижняя граница
+                
+                if (p.X >= Field.Width || p.X < 0 || p.Y < 0)
+                    return Result.BORDER_STRIKE;    //боковая граница
+
+                if (Field.CheckStrike(p))
+                    return Result.HEAP_STRIKE;      //столкновение с кучей фигур
             }
-            return true;
+            return Result.SUCCESS;
         }
 
         public void Move(Point[] pList, Direction dir)
@@ -57,16 +73,18 @@ namespace Tetris
             }
         }
 
-        internal void TryMove(Direction dir)
+        internal Result TryMove(Direction dir)
         {
             Hide();
             var clone = Clone();    //явного указания типа Point[]
             Move(clone, dir);
 
-            if (VerifyPosition(clone))
+            var result = VerifyPosition(clone);
+            if (result == Result.SUCCESS)
                 Points = clone;
 
             Draw();
+            return result;
         }
 
         private Point[] Clone()     //копия массива 
@@ -79,16 +97,18 @@ namespace Tetris
             return newPoints;
         }
 
-        internal void TryRotate()
+        internal Result TryRotate()
         {
             Hide();
             var clone = Clone();    //явного указания типа Point[]
             Rotate(clone);
 
-            if (VerifyPosition(clone))
+            var result = VerifyPosition(clone);
+            if (result == Result.SUCCESS)
                 Points = clone;
 
             Draw();
+            return result;
         }
     }
 }
