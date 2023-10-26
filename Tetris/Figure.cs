@@ -49,6 +49,8 @@ namespace Tetris
         //    return true;
         //}
         
+        //переписали ф-ю, теперь определяет не только границы окна
+        //но и нижнюю границу и столкновение с кучей
         private Result VerifyPosition(Point[] newPoints)
         {
             foreach(var p in newPoints)
